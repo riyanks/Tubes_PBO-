@@ -21,8 +21,23 @@ class Game():
                 self.run = False
                 pygame.quit()
 
+    def load_player():
+        pass
 
+    def load_menu():
+        pass
 
+    def get_FPS():
+        now = time.time()
+        self.dt = now - self.prev_time
+        self.prev_time = now
+
+    def background():
+        text_surface = self.font.render(text, True, color)
+            #text_surface.set_colorkey((0,0,0))
+        text_rect = text_surface.get_rect()
+        text_rect.center = (x, y)
+        surface.blit(text_surface, text_rect)
 
 
 
