@@ -1,6 +1,7 @@
 from main import Game
 import pygame , os
 
+#class untuk hero yang akan dimainkan 
 class Hero(Game):
     def __init__ (self,nama,  health, armor, damage):
         Game.__init__(self)

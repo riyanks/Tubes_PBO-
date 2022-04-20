@@ -2,6 +2,7 @@ from main import Game
 import pygame , os
 import rectangle
 
+#class untuk menampilkan menu
 class Menu(Game):
     def __init__ (self, nama, gambar, sound):
         Game.__init__(self)
