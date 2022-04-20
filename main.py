@@ -22,6 +22,17 @@ class Game():
                 pygame.quit()
 
 
+    def load_player():
+        pass
+
+    def load_menu():
+        pass
+
+    def get_FPS():
+        pass
+
+    def background():
+        pass
 
 
 
