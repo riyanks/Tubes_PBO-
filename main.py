@@ -29,19 +29,22 @@ class Game():
     def load_menu():
         pass
 
-    #fungsi ini untuk mengatur FPS dari game
-    def get_FPS():
-        now = time.time()
-        self.dt = now - self.prev_time
-        self.prev_time = now
+def attck_handle(self):
+        for bulet in self.Player_1.basic_att:
+            bulet.x += self.b_vel
+            if self.Player_2.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player2_hit))
+                self.Player_1.basic_att.remove(bulet)
+            elif bulet.x > self.width :
+                self.Player_1.basic_att.remove(bulet)
 
-    #Fungsi ini untuk membuat background dari game
-    def background():
-        text_surface = self.font.render(text, True, color)
-            #text_surface.set_colorkey((0,0,0))
-        text_rect = text_surface.get_rect()
-        text_rect.center = (x, y)
-        surface.blit(text_surface, text_rect)
+        for bulet in self.Player_2.basic_att:
+            bulet.x -= self.b_vel
+            if self.Player_1.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player1_hit))
+                self.Player_2.basic_att.remove(bulet)
+            elif bulet.x < 0 :
+                self.Player_2.basic_att.remove(bulet)
 
 
 
