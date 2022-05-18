@@ -93,3 +93,21 @@ class Game():
             self.run = False
 
         pygame.display.update()
+        
+    def attck_handle(self):
+        for bulet in self.Player_1.basic_att:
+            bulet.x += self.b_vel
+            if self.Player_2.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player2_hit))
+                self.Player_1.basic_att.remove(bulet)
+            elif bulet.x > self.width :
+                self.Player_1.basic_att.remove(bulet)
+
+        for bulet in self.Player_2.basic_att:
+            bulet.x -= self.b_vel
+            if self.Player_1.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player1_hit))
+                self.Player_2.basic_att.remove(bulet)
+            elif bulet.x < 0 :
+                self.Player_2.basic_att.remove(bulet)
+
