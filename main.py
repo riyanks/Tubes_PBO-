@@ -203,11 +203,47 @@ class Game():
         self.window.blit(self.Player_1.basic_action(), (self.Player_1.rect.x , self.Player_1.rect.y))
         self.window.blit(pygame.transform.flip(self.Player_2.basic_action(), True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
         
-        
-    ###################################### Syafira ############################################################
+       
     
+    def load_hero(self, A, B, C):
+        i = 1
+        while i < 3:
+            self.window.blit(self.bg_menu, (0,0))
+            self.get_event()
+
+            if i == 1:
+                draw_text = self.WINNER_FONT.render("Pilih Player 1", 1, self.WHITE)
+                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, 10))
+
+                if A.display_Menu(self.window):
+                    self.Player_1 = Hero_1(100, 370)
+                    i= 2
+                elif B.display_Menu(self.window):
+                    self.Player_1 = Hero_2(100,370)
+                    i= 2
+                elif C.display_Menu(self.window):
+                    self.Player_1 = Hero_3(100, 370)
+                    i= 2
+                
+            elif i == 2:
+                draw_text = self.WINNER_FONT.render("Pilih Player 2", 1, self.WHITE)
+                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2,10))
+
+                if A.display_Menu(self.window):
+                    self.Player_2 = Hero_1(700, 370)
+                    i= 3
+                elif B.display_Menu(self.window):
+                    self.Player_2 = Hero_2(700,370)
+                    i= 3
+                elif C.display_Menu(self.window):
+                    self.Player_2 = Hero_3(700, 370)
+                    i= 3
+
+            pygame.display.update()
+              
+
     
-    
+   
         #fungsi ini untuk membuat objek menu
     def login_game(self):
         startimg = pygame.image.load(os.path.join('Assets', 'Start.png'))
@@ -244,39 +280,3 @@ if __name__ == "__main__":
 
     BB1v1.login_game()
 
-def load_hero(self, A, B, C):
-        i = 1
-        while i < 3:
-            self.window.blit(self.bg_menu, (0,0))
-            self.get_event()
-
-            if i == 1:
-                draw_text = self.WINNER_FONT.render("Pilih Player 1", 1, self.WHITE)
-                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, 10))
-
-                if A.display_Menu(self.window):
-                    self.Player_1 = Hero_1(100, 370)
-                    i= 2
-                elif B.display_Menu(self.window):
-                    self.Player_1 = Hero_2(100,370)
-                    i= 2
-                elif C.display_Menu(self.window):
-                    self.Player_1 = Hero_3(100, 370)
-                    i= 2
-                
-            elif i == 2:
-                draw_text = self.WINNER_FONT.render("Pilih Player 2", 1, self.WHITE)
-                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2,10))
-
-                if A.display_Menu(self.window):
-                    self.Player_2 = Hero_1(700, 370)
-                    i= 3
-                elif B.display_Menu(self.window):
-                    self.Player_2 = Hero_2(700,370)
-                    i= 3
-                elif C.display_Menu(self.window):
-                    self.Player_2 = Hero_3(700, 370)
-                    i= 3
-
-            pygame.display.update()
-              
