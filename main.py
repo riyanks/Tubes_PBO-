@@ -111,3 +111,44 @@ class Game():
             elif bulet.x < 0 :
                 self.Player_2.basic_att.remove(bulet)
 
+    #fungsi ini agar player dapat berjalan 
+    def movement_handle (self, keys_pressed):
+        if keys_pressed[pygame.K_a] and self.Player_1.rect.x - self.vel > 0 :  # LEFT
+            self.Player_1.rect.x -= self.vel
+            self.Player_1.mundur()
+        if keys_pressed[pygame.K_d] and self.Player_1.rect.x + self.Player_1.width_P  + self.vel < self.batas.x:  # RIGHT
+            self.Player_1.rect.x += self.vel
+            self.Player_1.maju()
+        if keys_pressed[pygame.K_w] and self.Player_1.rect.y - self.vel > 0: # UP
+            self.jump_1 = True       
+        # if keys_pressed[pygame.K_s] and self.Player_1.rect.y + self.Player_1.height_P + self.vel + 60 < self.height:  # DOWN
+        #     self.Player_1.rect.y += self.vel
+
+        if keys_pressed[pygame.K_LEFT] and self.Player_2.rect.x - self.vel > self.batas.x:  # LEFT
+            self.Player_2.rect.x -= self.vel
+            self.Player_2.maju()
+        if keys_pressed[pygame.K_RIGHT] and self.Player_2.rect.x + self.vel < self.width - 50:  # RIGHT
+            self.Player_2.rect.x += self.vel
+            self.Player_2.mundur()
+        if keys_pressed[pygame.K_UP] and self.Player_2.rect.y - self.vel > 0:  # UP
+            self.jump_2 = True
+        # if keys_pressed[pygame.K_DOWN] and self.Player_2.rect.y + self.Player_2.height_P + self.vel + 60 < self.height:  # DOWN
+        #     self.Player_2.rect.y += self.vel
+
+        if self.jump_1 :
+            self.Player_1.jumping()
+
+            if self.Player_1.jmp == False:
+                self.jump_1 = False
+                self.Player_1.jmp = True
+        else :
+            pass
+
+        if self.jump_2 :
+            self.Player_2.jumping()
+
+            if self.Player_2.jmp == False:
+                self.jump_2 = False
+                self.Player_2.jmp = True
+        else :
+            pass
