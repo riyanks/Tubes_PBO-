@@ -202,4 +202,42 @@ class Game():
 
         self.window.blit(self.Player_1.basic_action(), (self.Player_1.rect.x , self.Player_1.rect.y))
         self.window.blit(pygame.transform.flip(self.Player_2.basic_action(), True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
+        
+        
+    ###################################### Syafira ############################################################
+    
+    
+    
+        #fungsi ini untuk membuat objek menu
+    def login_game(self):
+        startimg = pygame.image.load(os.path.join('Assets', 'Start.png'))
+        quitimg = pygame.image.load(os.path.join('Assets', 'Quit.png'))
+        Hero_1_image_menu = pygame.image.load(os.path.join('Assets', 'MrSpy.png'))
+        Hero_2_image_menu = pygame.image.load(os.path.join('Assets', 'EpticalBoy.png'))
+        Hero_3_image_menu = pygame.image.load(os.path.join('Assets', 'mrgungun.png'))
+
+        self.Start = Menu(startimg, self.width/4, 250, 150, 150)
+        self.Quit = Menu(quitimg, self.width*(2/4) + 50, 250, 150, 150)
+        Mrspy = Menu(Hero_1_image_menu, 100, self.height /2 - 50,150, 200)
+        Epticalboy = Menu(Hero_2_image_menu,350, self.height/2 - 50, 150, 200 )
+        Drgungun = Menu(Hero_3_image_menu,600, self.height/2 - 50, 150, 200)
+
+        mixer.music.load('Assets/sound_menu.mp3')
+        mixer.music.play(-1)
+        while self.run == True:
+            
+
+            self.window.blit(self.menuhome, (0,0))
+
+            self.get_event()
+            if self.Start.display_Menu(self.window):
+                self.load_hero(Mrspy, Epticalboy, Drgungun)
+                self.loop()
+            
+            if self.Quit.display_Menu(self.window):
+                self.run = False
+
+            pygame.display.update() 
+
+
 
