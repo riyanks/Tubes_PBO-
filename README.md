@@ -1,5 +1,6 @@
 # Tubes_PBO-
-Kelompok 6 
+
+Perkenalkan, kami dari kelompok 6 ingin mempresentasikan pemrograman kami
 
 List peran Tugas Besar PBO 
 
@@ -16,3 +17,4 @@ Deskripsi Game
 Cara Menjalankan Container docker
 
 Link Youtube : 
+
