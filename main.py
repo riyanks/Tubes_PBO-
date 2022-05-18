@@ -199,6 +199,7 @@ class Game():
     def load_menu():
         pass
 
+
     #Fungsi ini untuk membuat background dari game
     def background():
         text_surface = self.font.render(text, True, color)
@@ -206,6 +207,24 @@ class Game():
         text_rect = text_surface.get_rect()
         text_rect.center = (x, y)
         surface.blit(text_surface, text_rect)
+        
+def attck_handle(self):
+        for bulet in self.Player_1.basic_att:
+            bulet.x += self.b_vel
+            if self.Player_2.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player2_hit))
+                self.Player_1.basic_att.remove(bulet)
+            elif bulet.x > self.width :
+                self.Player_1.basic_att.remove(bulet)
+
+        for bulet in self.Player_2.basic_att:
+            bulet.x -= self.b_vel
+            if self.Player_1.rect.colliderect(bulet):
+                pygame.event.post(pygame.event.Event(self.player1_hit))
+                self.Player_2.basic_att.remove(bulet)
+            elif bulet.x < 0 :
+                self.Player_2.basic_att.remove(bulet)
+
 
 
 if __name__ == "__main__":
