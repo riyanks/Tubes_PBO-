@@ -239,5 +239,8 @@ class Game():
 
             pygame.display.update() 
 
+if __name__ == "__main__":
+    BB1v1 = Game()
 
+    BB1v1.login_game()
 
