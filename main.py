@@ -152,3 +152,54 @@ class Game():
                 self.Player_2.jmp = True
         else :
             pass
+    def check_armor(self):
+        armor_image = pygame.transform.scale( pygame.image.load(os.path.join('Assets', 'Armor.png')) , (30 , 30))
+        if self.Player_1.health < self.Player_1.health_def:
+            self.window.blit(armor_image, (10, 50))
+        if self.Player_2.health < self.Player_2.health_def:
+            self.window.blit(armor_image, (800 - 35, 50))
+    #fungsi untuk mendapatkan event terhadap kejadian pada game. Mis QUIT, PLAY, START, dll
+    def get_event(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.run = False
+        
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LCTRL and len(self.Player_1.basic_att) < self.peluru:
+                    bullet = pygame.Rect(self.Player_1.rect.x + self.Player_1.width_P, self.Player_1.rect.y + self.Player_1.height_P//2 -2 , 10, 5)
+                    self.Player_1.basic_att.append(bullet)
+                if event.key == pygame.K_RCTRL and len(self.Player_2.basic_att) < self.peluru:
+                    bullet = pygame.Rect(self.Player_2.rect.x, self.Player_2.rect.y + self.Player_2.height_P//2 -2, 10, 5)
+                    self.Player_2.basic_att.append(bullet)
+
+            if event.type == self.player1_hit:
+                self.Player_1.defend(self.Player_2.damage)
+
+            if event.type == self.player2_hit:
+                self.Player_2.defend(self.Player_1.damage)
+
+    #fungsi ini untuk menampilkan tampilan game
+    def draw_window(self):
+        self.window.blit(self.bg, (0, 0))
+
+        self.Player_1.display(self.window, True)
+        self.Player_2.display(self.window, False)
+
+        self.check_armor()
+
+        self.get_winner()
+
+        self.window.blit(self.Player_1.image, (self.Player_1.rect.x , self.Player_1.rect.y))
+        self.window.blit(pygame.transform.flip(self.Player_2.image, True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
+
+        for bulet in self.Player_1.basic_att:
+            pygame.draw.rect(self.window, self.RED, bulet)
+
+        for bulet in self.Player_2.basic_att:
+            pygame.draw.rect(self.window, self.GREEN, bulet)
+
+        pygame.display.update()
+
+        self.window.blit(self.Player_1.basic_action(), (self.Player_1.rect.x , self.Player_1.rect.y))
+        self.window.blit(pygame.transform.flip(self.Player_2.basic_action(), True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
+
