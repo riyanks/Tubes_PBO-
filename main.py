@@ -20,7 +20,9 @@ class Game():
         self.bg_menu = pygame.transform.scale( pygame.image.load(os.path.join('Assets', 'bg_menu.png')) , (self.width , self.height))
         self.menuhome = pygame.transform.scale( pygame.image.load(os.path.join('Assets', 'bg_menuhome.png')) , (self.width , self.height))
         self.batas = pygame.Rect(self.width//2 - 5 , 0 , 10, self.height)
-
+        
+        
+        #atribut objek
         self.player1_hit = pygame.USEREVENT + 1
         self.player2_hit = pygame.USEREVENT + 2
         self.peluru = 2
