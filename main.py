@@ -51,15 +51,33 @@ class Game():
             clock.tick(self.FPS)
             
             self.get_event()
+            winner_text = ""
+            if self.Player_1.current_health <= 0:
+                    self.Player_1.dead()
+                    winner_text = "Player 2 Wins!"
+
+            if self.Player_2.current_health <= 0:
+                    self.Player_2.dead()
+                    winner_text = "Player 1 Wins!"
+
+            if winner_text != "":
+                mixer.music.load('Assets/sound_win.wav')
+                mixer.music.play(-1)
+                draw_text = self.WINNER_FONT.render(winner_text, 1, self.WHITE)
+                self.draw_window()
+                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, self.height/2 - draw_text.get_height()/2))
+                pygame.display.update()
+                pygame.time.delay(10000)
+
+                break
+                
 
             keys_pressed = pygame.key.get_pressed()
             self.movement_handle(keys_pressed)
             self.attck_handle()         
             self.draw_window()   
 
-            if self.Player_1.health <= 0 or self.Player_2.health <= 0:
-                pygame.time.delay(4000)    
-                break 
+            
         self.login_game()
         
     def get_winner (self):
@@ -76,23 +94,6 @@ class Game():
             draw_text = self.WINNER_FONT.render(winner_text, 1, self.WHITE)
             self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, self.height/2 - draw_text.get_height()/2))
         
-    def endgame(self):
-        self.window.blit(self.bg_menu, (0,0))
-
-
-        startimg = pygame.image.load(os.path.join('Assets', 'Start.png'))
-        quitimg = pygame.image.load(os.path.join('Assets', 'Quit.png'))
-
-        playagain = Menu(startimg, self.width/4, 250, 150, 150)
-        Exit = Menu(quitimg, self.width*(2/4) + 50, 250, 150, 150)
-
-        if playagain.display_Menu(self.window):
-            self.loop()
-            
-        if Exit.display_Menu(self.window):
-            self.run = False
-
-        pygame.display.update()
         
     def attck_handle(self):
         for bulet in self.Player_1.basic_att:
