@@ -2,7 +2,7 @@
 import pygame , os
 from pygame import mixer
 
-#class untuk menampilkan menu
+#class ini berfungsi untuk menampilkan menu
 class Menu():
     def __init__ (self, gambar, x, y, W, H, animasi = 10):
         self.width_M , self.height_M = W , H
@@ -24,7 +24,7 @@ class Menu():
         #posisi mouse
         pos_mouse = pygame.mouse.get_pos()
 
-        #check jika posisi mouse berada pada gambar
+        #mengecheck jika posisi mouse berada pada gambar
 
         if self.rect.collidepoint(pos_mouse):
             if self.check:
@@ -36,10 +36,10 @@ class Menu():
                 self.butten_sound.play()
                 self.image = self.image_elevation
                 play = True
-                self.clicked = True
+                self.clicked = True #jika posisi mouse ini berada pada gambar
 
             if pygame.mouse.get_pressed()[0] == 0:
-                self.clicked == False
+                self.clicked == False #jika posisi mouse tidak ada pada gambar 
                 self.image = self.image_original
         else :
             self.check = True
