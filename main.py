@@ -23,13 +23,12 @@ class Game():
         
         
         #atribut objek
-        self.player1_hit = pygame.USEREVENT + 1
-        self.player2_hit = pygame.USEREVENT + 2
+        self.player1_hit = pygame.USEREVENT + 1 #atribut objek player 1
+        self.player2_hit = pygame.USEREVENT + 2 #atribut objek player 2
         self.peluru = 2
 
 
-        #sound
-        
+        #sound 
         self.Start = None
         self.Quit = None
         self.Player_1 = None
@@ -181,7 +180,7 @@ class Game():
             if event.type == self.player2_hit:
                 self.Player_2.defend(self.Player_1.damage)
 
-    #fungsi ini untuk menampilkan tampilan game
+    #fungsi ini berfungsi untuk menampilkan tampilan game
     def draw_window(self):
         self.window.blit(self.bg, (0, 0))
 
