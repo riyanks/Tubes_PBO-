@@ -1,6 +1,6 @@
-# Tubes_PBO-
 
-Perkenalkan, kami dari kelompok 6 ingin mempresentasikan pemrograman kami
+# Tubes_PBO-
+Kelompok 6 
 
 List peran Tugas Besar PBO 
 
@@ -9,12 +9,39 @@ List peran Tugas Besar PBO
 3. Tester = Fatya, Debora
 4. Designer = syafira 
 
-Judul Game : 1 vs 1 Bang-Bang
+Game = 1 vs 1 Bang-Bang
+=======
+# Docker
 
-Deskripsi Game
-  1 vs 1 Bang-Bang merupakan game bergenre First Person Shooter atau FPS yang dikendalikan oleh Player1 dan Player2 maupun Player1 dan NPC.
 
-Cara Menjalankan Container docker
+Buat directory baru bernama "Pygame" dan letak file cloningan ini ke dalam directory
 
-Link Youtube : 
+Build
+
+    make build
+
+Linux
+
+    make run-linux
+
+Mac
+
+    make run-mac
+
+Windows
+
+    make run-windows
+
+
+Test
+
+    python3 -m main
+
+
+## Video Demo Kontainer
+[![KLIK DISINI !!!](https://img.youtube.com/vi/fJGWkbZHdWo/0.jpg)](https://www.youtube.com/watch?v=fJGWkbZHdWo)
+
+KLIK GAMBAR UNTUK MELIHAT VIDEO
+
+
 
