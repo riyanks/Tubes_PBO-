@@ -97,6 +97,10 @@ class Hero(ABC):
             else :
                 self.health -= enemy_damage
               
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 95cafcba9c7f1f51201132ae875f2a1fcd963ec8
         else :
             self.health = 0
 
@@ -168,7 +172,11 @@ class Hero_2(Hero):
 class Hero_3(Hero):
     def __init__ (self, react_x, react_y):
         self.Hero_G = pygame.image.load(os.path.join('Assets', 'Hero3_diam.png'))
+<<<<<<< HEAD
         Hero.__init__(self, "Mr gun gun", 2000, 6, 100, self.Hero_G, react_x, react_y)
+=======
+        Hero.__init__(self, "Eptical Boy", 2000, 6, 100, self.Hero_G, react_x, react_y)
+>>>>>>> 95cafcba9c7f1f51201132ae875f2a1fcd963ec8
 
         self.dead_image = pygame.image.load(os.path.join('Assets', 'Hero3_mati.png'))
 

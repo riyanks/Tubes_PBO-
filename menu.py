@@ -1,3 +1,4 @@
+#Syafira
 
 import pygame , os
 from pygame import mixer
@@ -18,6 +19,7 @@ class Menu():
         self.curs_sound = mixer.Sound('Assets\sound_curs.wav')
         self.check = True
 
+  #Debora
     def display_Menu(self, screen):
         play = False
 

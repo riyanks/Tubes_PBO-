@@ -1,3 +1,4 @@
+#########Riyan 
 import pygame , os
 from player import *
 from menu import *
@@ -51,35 +52,32 @@ class Game():
             clock.tick(self.FPS)
             
             self.get_event()
-            winner_text = ""
-            if self.Player_1.current_health <= 0:
-                    self.Player_1.dead()
-                    winner_text = "Player 2 Wins!"
-
-            if self.Player_2.current_health <= 0:
-                    self.Player_2.dead()
-                    winner_text = "Player 1 Wins!"
-
-            if winner_text != "":
-                mixer.music.load('Assets/sound_win.wav')
-                mixer.music.play(-1)
-                draw_text = self.WINNER_FONT.render(winner_text, 1, self.WHITE)
-                self.draw_window()
-                self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, self.height/2 - draw_text.get_height()/2))
-                pygame.display.update()
-                pygame.time.delay(10000)
-
-                break
-                
 
             keys_pressed = pygame.key.get_pressed()
             self.movement_handle(keys_pressed)
             self.attck_handle()         
             self.draw_window()   
 
-            
+            if self.Player_1.health <= 0 or self.Player_2.health <= 0:
+                pygame.time.delay(4000)    
+                break 
         self.login_game()
 
+#Zointa
+
+    def get_winner (self):
+        winner_text = ""
+        if self.Player_1.current_health <= 0:
+                self.Player_1.dead()
+                winner_text = "Player 2 Wins!"
+
+        if self.Player_2.current_health <= 0:
+                self.Player_2.dead()
+                winner_text = "Player 1 Wins!"
+
+        if winner_text != "":
+            draw_text = self.WINNER_FONT.render(winner_text, 1, self.WHITE)
+            self.window.blit(draw_text, (self.width/2 - draw_text.get_width() /2, self.height/2 - draw_text.get_height()/2))
         
     def endgame(self):
         self.window.blit(self.bg_menu, (0,0))
@@ -100,7 +98,7 @@ class Game():
         pygame.display.update() 
 
 
-
+#Debora
     def attck_handle(self):
         for bulet in self.Player_1.basic_att:
             bulet.x += self.b_vel
@@ -118,7 +116,9 @@ class Game():
             elif bulet.x < 0 :
                 self.Player_2.basic_att.remove(bulet)
 
-                    
+
+
+#fatya
     #fungsi ini agar player dapat berjalan 
     def movement_handle (self, keys_pressed):
         if keys_pressed[pygame.K_a] and self.Player_1.rect.x - self.vel > 0 :  # LEFT
@@ -161,6 +161,7 @@ class Game():
         else :
             pass
 
+  #fatya
     def check_armor(self):
         armor_image = pygame.transform.scale( pygame.image.load(os.path.join('Assets', 'Armor.png')) , (30 , 30))
         if self.Player_1.health < self.Player_1.health_def:
@@ -196,6 +197,8 @@ class Game():
 
         self.check_armor()
 
+        self.get_winner()
+
         self.window.blit(self.Player_1.image, (self.Player_1.rect.x , self.Player_1.rect.y))
         self.window.blit(pygame.transform.flip(self.Player_2.image, True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
 
@@ -207,14 +210,11 @@ class Game():
 
         pygame.display.update()
 
-        self.Player_1.basic_action()
-        self.Player_2.basic_action()
-
-        # self.window.blit(self.Player_1.basic_action(), (self.Player_1.rect.x , self.Player_1.rect.y))
-        # self.window.blit(pygame.transform.flip(self.Player_2.basic_action(), True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
+        self.window.blit(self.Player_1.basic_action(), (self.Player_1.rect.x , self.Player_1.rect.y))
+        self.window.blit(pygame.transform.flip(self.Player_2.basic_action(), True, False), (self.Player_2.rect.x , self.Player_2.rect.y))
 
 
-
+#Syafira
     def load_hero(self, A, B, C):
         i = 1
         while i < 3:
@@ -251,7 +251,7 @@ class Game():
 
             pygame.display.update()
               
-
+#Riyan
     #fungsi ini untuk membuat objek menu
     def login_game(self):
         startimg = pygame.image.load(os.path.join('Assets', 'Start.png'))
@@ -286,7 +286,7 @@ class Game():
 
 
         
-
+#Zointa
 
 if __name__ == "__main__":
     BB1v1 = Game()
