@@ -6,6 +6,7 @@ from pygame import mixer
 #class untuk menampilkan menu
 class Menu():
     def __init__ (self, gambar, x, y, W, H, animasi = 10):
+        pygame.mixer.init()
         self.width_M , self.height_M = W , H
         self.image_original = pygame.transform.scale(gambar, (self.width_M, self.height_M))
         self.image_elevation = pygame.transform.scale(gambar, (120, 120))
@@ -15,8 +16,8 @@ class Menu():
         self.clicked = False
         self.dinamic_elevation = animasi
         self.original_y = y
-        self.butten_sound = mixer.Sound('Assets\sound_button.wav')
-        self.curs_sound = mixer.Sound('Assets\sound_curs.wav')
+        self.butten_sound = mixer.Sound(os.path.join('Assets','sound_button.wav'))
+        self.curs_sound = mixer.Sound(os.path.join('Assets','sound_curs.wav'))
         self.check = True
 
   #Debora

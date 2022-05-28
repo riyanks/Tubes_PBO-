@@ -7,6 +7,7 @@ pygame.font.init()
 #class ini merupakan kelas dari seluruh tampilan dan inisialisasi game
 class Game(): 
     def  __init__ (self):
+        pygame.mixer.init()
         pygame.init()
         self.width , self.height = 800 , 500 #lebar jendela window
         self.window = pygame.display.set_mode((self.width, self.height))
