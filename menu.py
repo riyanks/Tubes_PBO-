@@ -45,9 +45,6 @@ class Menu():
         else :
             self.check = True
 
-
-        
         screen.blit(self.image, (self.rect.x, self.rect.y))
         
-
         return play
