@@ -85,8 +85,6 @@ class Hero(ABC):
             pygame.draw.rect(screen,transition_color,transition_bar)	
             pygame.draw.rect(screen,(255,255,255),(800-self.health_bar_length,10,self.health_bar_length,25),4)	
 
-    def attack(self, enemy_damage):
-        pass
 
     def defend(self, enemy_damage):
         if self.health > 0 :
@@ -99,9 +97,6 @@ class Hero(ABC):
               
         else :
             self.health = 0
-
-    def regen(self):
-        self.damage += self.__regen
 
 
 class Hero_1(Hero):
@@ -123,19 +118,6 @@ class Hero_1(Hero):
         self.image = pygame.transform.scale(mundur_image, (self.width_P , self.height_P))
 
 
-    def attack(self):
-        pass
-            
-    def win_lose(self):
-        pass
-
-    def sound(self):
-        pass
-
-    def display_weapon(self):
-        pass
-
-
 class Hero_2(Hero):
     def __init__ (self, react_x, react_y):
         self.Hero_G = pygame.image.load(os.path.join('Assets', 'Hero2_diam.png'))
@@ -155,14 +137,6 @@ class Hero_2(Hero):
         self.image = pygame.transform.scale(mundur_image, (self.width_P , self.height_P))
 
 
-    def win_lose(self):
-        pass
-
-    def sound(self):
-        pass
-
-    def display_weapon(self):
-        pass
 
 
 class Hero_3(Hero):
@@ -182,11 +156,3 @@ class Hero_3(Hero):
     def mundur (self):
         mundur_image = pygame.image.load(os.path.join('Assets', 'Hero3_mundur.png'))
         self.image = pygame.transform.scale(mundur_image, (self.width_P , self.height_P))
-    def win_lose(self):
-        pass
-
-    def sound(self):
-        pass
-
-    def display_weapon(self):
-        pass

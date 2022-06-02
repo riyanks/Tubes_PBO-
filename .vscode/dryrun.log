@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/Riyan Khoiri Siregar/Documents/git/github/Tubes-PBO'
+docker build . -t 1v1bb
+make: Leaving directory 'c:/Users/Riyan Khoiri Siregar/Documents/git/github/Tubes-PBO'
+ 

@@ -27,8 +27,8 @@ class Game():
         self.peluru = 2
 
 
-        #sound
         
+        #variabel instansiasi
         self.Start = None
         self.Quit = None
         self.Player_1 = None
@@ -102,7 +102,7 @@ class Game():
 
 
 
-    def attck_handle(self):
+    def attck_handle(self):#logic peluru 
         for bulet in self.Player_1.basic_att:
             bulet.x += self.b_vel
             if self.Player_2.rect.colliderect(bulet):
