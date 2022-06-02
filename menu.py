@@ -1,5 +1,3 @@
-#Syafira
-
 import pygame , os
 from pygame import mixer
 
@@ -20,7 +18,6 @@ class Menu():
         self.curs_sound = mixer.Sound(os.path.join('Assets','sound_curs.wav'))
         self.check = True
 
-  #Debora
     def display_Menu(self, screen):
         play = False
 
@@ -48,9 +45,6 @@ class Menu():
         else :
             self.check = True
 
-
-        
         screen.blit(self.image, (self.rect.x, self.rect.y))
         
-
         return play
